@@ -23,3 +23,7 @@ $routeProvider is a seperate library from core angular, must be included in proj
 	-This is where we can config the routes, set up controllers, etc!
 	
 	//app.config(function() {/*....*/});								
+	
+	
+--REM: good controller will have as little logic in it as possible.
+--Used for binding view/model and small helper functions not needed elsewhere
