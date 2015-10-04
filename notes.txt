@@ -54,3 +54,26 @@ app.factory('InboxFactory', function InboxFactory ($http) {
 -this is using the Promise API -> no object at time of call, but 
 -PROMISED an object on return. act accordingly.
 
+
+Promises 
+- used heavily in angular, especially for things that take time (HTTP Requests for ex)
+- use $q ($http is based off $q)
+	- create the promise and pass it 2 callback functions for when:
+		1) promise returned as expected (success)
+		2) not returned as expected (error)
+	ex) var deferred = $q.defer();
+		deferred.promise.then(
+			function whenThingsGoSunny(){}, //success
+			function whenThingsDontGoSoSunny(){} //failure
+		)
+	
+-$http does something similar with success, error functions on ajax requests
+	$http({method: 'GET', url: '/someUrl'})
+	.success(function(data, status, headers, config) {
+		// this callback will be called asynchronously
+		// when the response is available
+	})
+	.error(function(data, status, headers, config) {
+		// called asynchronously if an error occurs
+		// or server returns response with an error status.
+	});

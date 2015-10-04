@@ -9,9 +9,9 @@ app.factory('InboxFactory', function InboxFactory ($http) {
    exports.getMessages = function () {
 	   //makes ajax call using $http object
       return $http.get('json/emails.json')
-         .success(function(data) {
-           console.log("Data Returned: " + JSON.stringify(data));
-         })
+         // .success(function(data) {
+           // console.log("Data Returned: " + JSON.stringify(data));
+         // })
          .error(function (data) {
             console.log('There was an error!', data);
          });
