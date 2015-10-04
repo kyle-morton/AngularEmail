@@ -1,12 +1,14 @@
 //initialize the InboxCtrl controller and it's vars
 //Notice we inject the InboxFactory so we can reference in controller
-app.controller('InboxCtrl', function ($scope, InboxFactory) {
+app.controller('InboxCtrl', function InboxCtrl ($scope, InboxFactory) {
+    
+    'use strict'; //js executed in strict mode
 
    //bind vars, functions to the controller instance, not $scope	
    var vm = this;
 	
    // initialize the title property to an array for the view to use
-   vm.title = "This is a title";
+   vm.title = "My Inbox";
    
    vm.click = function() {
        console.log("Value: " + this.title);

@@ -13,7 +13,8 @@ app.factory('InboxFactory', function InboxFactory ($q, $http, $location) {
    //open the selected message
    exports.goToMessage = function(id) {
       if ( angular.isNumber(id) ) {
-      // $location.path('inbox/email/' + id)
+        console.log('inbox/email/' + id)
+        $location.path('inbox/email/' + id)
       }
    }
    

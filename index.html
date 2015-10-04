@@ -4,9 +4,15 @@
     <meta charset="utf-8">
     <title>AngularJS Email App</title>
     <link href="css/style.css" rel="stylesheet">
+    <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="TestCtrlDiv" ng-controller="TestCtrl">
+    <!--<div id="TestCtrlDiv" ng-controller="TestCtrl">
         <h1>{{title}}</h1>
         <input type="text" ng-model="title" placeholder="Write a title here">
     </div>
@@ -15,24 +21,39 @@
         <h1>{{inbox.title}}</h1>
         <input type="text" ng-model="inbox.title" placeholder="Write a title here">
         <input type="button" ng-click="inbox.click()" value="Click Me">
-    </div>
+    </div>-->
+
+    <header class="header" role="banner">
+      <div class="header__text">
+        <p>Angular Mail by <a href="http://www.thinkful.com/a/learn">Thinkful.com</a></p>
+      </div>
+    </header>
+
+    <main class="main" role="main">
+      <div ng-view class="flex"></div>
+    </main>
+
 
     <script src="lib/jquery-v1.11.1.js"></script>
     <script src="lib/angular-v1.2.22.js"></script>
     <!-- Extra routing library -->
     <script src="lib/angular-route-v1.2.22.js"></script>
+    <script src="lib/angular-sanitize-v1.2.22.js"></script>
     
     <!-- angular app js -->
     <script src="js/app.js"></script>
     
     <!-- angular controllers -->
-    <script src="js/ctrl/inboxCtrl.js"></script>
+    <script src="js/ctrl/InboxCtrl.js"></script>
+    <script src="js/ctrl/EmailCtrl.js"></script>
     
     <!-- angular factories -->
-    <script src="js/factory/inboxFactory.js"></script>
+    <script src="js/factory/InboxFactory.js"></script>
+    <script src="js/factory/EmailFactory.js"></script>
     
     <!-- angular custom directive -->
-    <script src="js/directives/inbox.js"></script>
+    <script src="js/directives/InboxDrctv.js"></script>
+    <script src="js/directives/EmailDrctv.js"></script>
     
   </body>
 </html>

@@ -25,6 +25,12 @@ app.config(function($routeProvider){
 	
 });
 
+//used to show debugging info on Routing Events in $rootScope
+app.run(function($rootScope) {
+   $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
+      console.log(event, current, previous, rejection)
+   })
+});
 
 
 function TestCtrl($scope) { //angular looks for function with ng-controller name "TestCtrl"
