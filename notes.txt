@@ -1,0 +1,25 @@
+-uses the single page application idealogy (0 page refreshes)
+	the html needed is injected into the ng-view element
+
+-angular.module('myApp', []) -> creates new module (NAMESPACE) called 'myApp' and returns
+								it so you can assign it vars, functions
+							 -> [] is used to path names of other modules as dependencies
+							 -> with the array arg, the function becomes a getter for 'myApp'
+							 
+-routing -> use $routeProvider to inject the correct html when certain route reached
+		    EX. when at /inbox, inject inbox.html which inits it's controller
+			
+$routeProvider is a seperate library from core angular, must be included in project file
+***$routeProvider version should MATCH your angular version
+
+-once $routeProvided included, we can use ngRoute and pass as dependency in our module!
+ 	EX. var app = angular.module('app', [
+								'ngRoute'
+								]);
+								
+-you can dynamically assign controllers to html elements
+
+**modules have a .config() function that is run before most other function callbacks.
+	-This is where we can config the routes, set up controllers, etc!
+	
+	//app.config(function() {/*....*/});								
