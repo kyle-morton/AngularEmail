@@ -12,14 +12,14 @@ app.controller('InboxCtrl', function ($scope, InboxFactory) {
        console.log("Value: " + this.title);
    }        
    
-   //Hook up the factory to get the JSON messages
-   //Use factory like static class, getMessages() returns promise!
-    InboxFactory.getMessages()
-      .success(function(jsonData, statusCode) {
-         console.log('The request was successful!', statusCode, jsonData);
-         // Now add the Email messages to the controller's scope
-         vm.emails = jsonData;
-   });
+   // //Hook up the factory to get the JSON messages
+   // //Use factory like static class, getMessages() returns promise!
+    // InboxFactory.getMessages()
+    //   .success(function(jsonData, statusCode) {
+    //      console.log('The request was successful!', statusCode, jsonData);
+    //      // Now add the Email messages to the controller's scope
+    //      vm.emails = jsonData;
+   // });
    
    return vm;
 });

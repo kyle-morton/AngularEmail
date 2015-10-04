@@ -83,3 +83,50 @@ EX)
 <!-- currency filter applied to a multiplication of 2 numbers -->
 <div class="total-info">{{ cost * quantity | currency }}</div>
 
+Directives (used as HTML extensions)
+*You can create custom directives (html tags) and inject html, ctlrs, etc into them
+
+ex) HTML (the directive will injected into my-custom-element)
+<div id="someview">
+   {{ data.scopePropertyAsUsual }}
+   <my-custom-element></my-custom-element>
+</div>
+
+ex) Angular Backend (the name here is camelCased as myCustomElement, this is angular convention)
+app.directive('myCustomElement', function myCustomElement() {
+   return {
+      restrict: 'EA',
+      replace: true, //replaces the root element of directive (div id=someview)
+      scope: true, //true inherits the parent scope, keeps siblings seperated
+      template: [ //creates the html injected into directive
+         "<div>",
+         "	<h1>My Custom Element's Heading</h1>",
+         "	<p>Some content here!</p>",
+         "	<pre>{{ ctrl.expression | json }}</pre>,"
+         "</div>"
+      ].join(""),
+      controllerAs: 'ctrl', //normal alias
+      controller: function ($scope) { //controller to use
+         this.expression = {
+            property: "Example"
+         }
+      },
+      link: function (scope, element, attrs) {} //non-ang init
+   }
+});
+
+Built-In Directives
+-these angular directives will evaluate based on data in them
+ng-show -> only appear if true
+ng-repeat -> foreach loop
+ex)
+<ul>
+   <li ng-repeat="item in items">
+      {{ item.name }}
+   </li>
+</ul>
+//<li ng-repeat="message in inbox.messages | filter:{ from: inbox.search }">
+//inbox.search comes from ng-model directive we attached to an input field
+
+<input type="text" class="inbox__search" placeholder="Search"
+   ng-model="inbox.search">
