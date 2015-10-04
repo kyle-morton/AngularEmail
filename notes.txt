@@ -77,3 +77,9 @@ Promises
 		// called asynchronously if an error occurs
 		// or server returns response with an error status.
 	});
+
+-REM: {{ }} can house not only angular ctrl values, but also JS expressions as well
+EX) 
+<!-- currency filter applied to a multiplication of 2 numbers -->
+<div class="total-info">{{ cost * quantity | currency }}</div>
+
