@@ -33,4 +33,24 @@ Factory---
 -create reusable features and code blocks througout app
 *API comm and modal storage/updates!
 
--create using app.factory
+-create using app.factory (REM: factory creates an object that has the useful functions in it)
+*GOOD IDEA -> use exports objects to store vars, functions that you actually want returned! 
+REM: scoping can be confusing to defug if not explicit
+
+app.factory('InboxFactory', function InboxFactory ($http) {
+   var exports = {};
+
+   exports.getMessages = function () {
+      return $http.get('json/emails.json')
+         .error(function (data) {
+            console.log('There was an error!', data);
+      });
+   };
+
+   return exports;
+});
+
+-notice how the return from $http.get() has function call .error()
+-this is using the Promise API -> no object at time of call, but 
+-PROMISED an object on return. act accordingly.
+

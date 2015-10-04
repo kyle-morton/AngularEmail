@@ -9,7 +9,7 @@ app.controller('InboxCtrl', function ($scope) {
    
    vm.click = function() {
        console.log("Value: " + this.title);
-   }
+   }            
    
    return vm;
 });
