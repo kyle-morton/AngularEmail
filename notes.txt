@@ -27,3 +27,10 @@ $routeProvider is a seperate library from core angular, must be included in proj
 	
 --REM: good controller will have as little logic in it as possible.
 --Used for binding view/model and small helper functions not needed elsewhere
+
+Factory---
+-commonly used to communicate with server-side APIs
+-create reusable features and code blocks througout app
+*API comm and modal storage/updates!
+
+-create using app.factory
